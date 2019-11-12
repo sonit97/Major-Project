@@ -1,0 +1,17 @@
+﻿@using Model.EF
+@model IEnumerable<SanPham>
+        @foreach(var item in Model.Take(3))
+        {
+        <div class="col-md-4 grid-top">
+            <a href="@Url.RouteUrl("XemChiTiet",new { @id=@item.MaSP,@tensp=@item.TenSP})" class="b-link-stripe b-animate-go  thickbox">
+                <img style="width:254px;height:255px;" class="img-responsive" src="@Url.Content(item.HinhAnh)"  alt="">
+                <div class="b-wrapper">
+                    <h3 class="b-animate b-from-left    b-delay03 " style="text-align-align:left;font-size:25pt;padding-top:150px;">
+                        @(item.DonGia.HasValue ? item.DonGia.Value.ToString("N0") : "Liên hệ") VNĐ
+                    </h3>
+                </div>
+            </a>
+            <p><a href="single.html">@item.TenSP</a></p>
+        </div>
+        }
+        <div class="clearfix"> </div>

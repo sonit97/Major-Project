@@ -1,0 +1,85 @@
+﻿@using Model.EF;
+@model IEnumerable<SanPham>
+
+<div class="h_menu4">
+    <ul class="memenu skyblue">
+        <li class="active grid"><a style="font-weight:bold;" class="color8" href="@Url.Action("Index","Home")">Trang chủ</a></li>
+       @foreach (var groupitem in Model.GroupBy(n => n.LoaiSanPham))
+       {
+           if (groupitem.Key != null)
+           {
+
+            <li>
+                <a class="color1" style="font-weight:bold;"href="#">@groupitem.Key.TenLoai</a>
+                <div class="mepanel">
+                    <div class="row">
+                        <div class="col1">
+                            <div class="h_nav">
+                                <ul>
+                                    @foreach (var item in groupitem.GroupBy(n => n.NhaSanXuat))
+                                    {
+                                        if (item.Key != null)
+                                        {
+                                           
+                                            <li><a id="x" style="font-weight:bold;" href="@Url.RouteUrl("SanPham",new { @MaLoaiSP=@groupitem.Key.MaLoaiSP,@MaNSX=@item.Key.MaNSX})">@item.Key.TenNSX</a></li>
+                                        }
+
+                                    }
+                                   
+                                 
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+           }
+
+       }
+        <li class="grid">
+            <a class="color2" style="font-weight:bold;" href="#">	Thương Hiệu</a>
+            <div class="mepanel">
+                <div class="row">
+                       @foreach (var groupitem in Model.GroupBy(n => n.LoaiSanPham))
+                       {
+                           if (groupitem.Key != null)
+                           {
+                            <div class="col1">
+                                <div class="h_nav">
+                                    <h4>@groupitem.Key.TenLoai</h4>
+                                    <ul>
+                                        @foreach (var item1 in groupitem.GroupBy(n => n.NhaSanXuat))
+                                        {
+                                            if (item1.Key != null)
+                                            {
+                                                     <li><a id="x" style="font-weight:bold;" href="@Url.RouteUrl("SanPham",new { @MaLoaiSP=@groupitem.Key.MaLoaiSP,@MaNSX=@item1.Key.MaNSX})">@item1.Key.TenNSX</a></li>
+                                            }
+
+                                        }
+                                       
+                                      
+
+                                    </ul>
+                                </div>
+                            </div>
+                           }
+
+
+                       }
+                   
+                </div>
+            </div>
+        </li>
+        <li><a style="font-weight:bold;" class="color4" href="blog.html">Giới thiệu</a></li>
+        <li><a style="font-weight:bold;" class="color6" href="contact.html">Liên hệ</a></li>
+    </ul>
+</div>
+<script>
+$(document).ready(function(){
+    $(x).hover(function(){
+        $(this).css("background-color", "#bdc3c7");
+        }, function(){
+        $(this).css("background-color", "white");
+    });
+});
+</script>

@@ -1,0 +1,34 @@
+﻿@using Model.EF
+@using PagedList.Mvc;
+@model PagedList.IPagedList<SanPham>
+@{
+    ViewBag.Title = "KQTimKiem";
+    Layout = "~/Views/Shared/_ProductLayout.cshtml";
+}
+
+<div class="col-md-9 product1">
+    <div class="bottom-product">
+        @foreach (var item in Model.OrderBy(n => n.DonGia))
+        {
+            <div class="col-md-4 bottom-cd simpleCart_shelfItem">
+                <div class="product-at ">
+                    <a href="single.html">
+                        <img class="img-responsive" src="@Url.Content("~/Content/client/imgsp/"+item.HinhAnh)" alt="" style="width:200px; height:200px">
+                        <div class="pro-grid">
+                            <a class="buy-in" style="text-decoration:none;" href="@Url.RouteUrl("XemChiTiet",new { @id=@item.MaSP,@tensp=@item.TenSP})"><span class="buy-in">Xem chi tiết</span></a>
+                        </div>
+                    </a>
+                </div>
+                <p class="tun">@item.TenSP<br /><span>@item.DonGia.Value.ToString("#,##") VNĐ</span></p>
+                @* Thẻ a nút thêm giỏ hàng *@
+                <a href="@Url.Action("ThemGioHang","GioHang",new { @MaSP=item.MaSP,@strURL=Request.Url.ToString()})" class="item_add"><p class="number item_price"><i> </i>Thêm giỏ hàng</p></a>
+            </div>
+        }
+    </div>
+</div>
+<div>
+    Trang@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount@Html.PagedListPager(Model, page => Url.Action("KQTimKiem", new { page=page,@sTuKhoa=ViewBag.TuKhoa }))
+</div>
+
+
+

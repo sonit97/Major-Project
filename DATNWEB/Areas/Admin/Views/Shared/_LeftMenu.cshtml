@@ -1,0 +1,169 @@
+﻿@using DATNWEB.Common
+@{
+    Layout = null;
+}
+
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="sidebar-search">
+                <div class="input-group custom-search-form">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+                <!-- /input-group -->
+            </li>
+            @if (Session[Commonconstants.USER_SESSION] != null)
+            {
+                UserLogin admin = (UserLogin)Session[Commonconstants.USER_SESSION];
+                if (admin.MaLoaiTV == 4)
+                {
+                    <li>
+                        <a href="@Url.Action("Index","Homee")"><i class="fa fa-dashboard fa-fw"></i> Thống Kê</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-user fa-user"></i> Quản Lý Thành Viên<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("Index","ThanhViens")">Danh Sách</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Create","ThanhViens")">Thêm mới thành viên</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","KhachHangs")">Danh Sách khách hàng</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-list fa-fw"></i>Đơn hàng<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("Index","DonDatHangs")">Danh sách đơn hàng</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("DuyetDonHang","DonDatHangs",new {@ma=0})">Đợi duyệt</a>
+                            </li>
+                            @*<li>
+                                <a href="buttons.html">Nhập Sản Phẩm</a>
+                            </li>*@
+                            @*<li>
+                                    <a href="#">Danh Mục<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="@Url.Action("Index","LoaiSanPhams")">Sản Phẩm</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Index","NhaSanXuats")">Nhà Sản Xuất</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Index","NhaCungCaps")">Nhà Cung Cấp</a>
+                                        </li>
+                                    </ul>
+                                </li>*@
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Sản Phẩm<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("Index","SanPhams")">Danh Sách Sản Phẩm</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Create","SanPhams")">Thêm Mới Sản Phẩm</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("NhapHang","NhapHangs")">Nhập Sản Phẩm</a>
+                            </li>
+                            <li>
+                                <a href="#">Danh Mục<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="@Url.Action("Index","LoaiSanPhams")">Sản Phẩm</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index","NhaSanXuats")">Nhà Sản Xuất</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index","NhaCungCaps")">Nhà Cung Cấp</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("DonHangDaDuyet","DonDatHangs")"><i class="fa fa-table fa-fw"></i>Danh Sách giao nhận hàng</a>
+                    </li>
+                  
+
+                }
+                else if (admin.MaLoaiTV == 2)
+                {
+                    <li>
+                        <a href="@Url.Action("DonHangDaDuyet","DonDatHangs")"><i class="fa fa-table fa-fw"></i>Danh Sách Đơn Hàng</a>
+                    </li>
+                }
+                else if (admin.MaLoaiTV == 3)
+                {
+                    <li>
+                        <a href="@Url.Action("DonHangGiao","DonDatHangs")"><i class="fa fa-car fa-fw"></i>Đơn Hàng Cần Giao</a>
+                    </li>
+                }
+            }
+
+
+
+
+
+            @*<li>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Xử Lý Đơn Hàng<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="flot.html">Flot Charts</a>
+                    </li>
+                    <li>
+                        <a href="morris.html">Morris.js Charts</a>
+                    </li>
+                </ul>
+                
+            </li>*@
+            @*<li>
+                <a href="#"><i class="fa fa-sitemap fa-fw"></i>Danh Sách Đơn Hàng <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="#">Second Level Item</a>
+                    </li>
+                    <li>
+                        <a href="#">Second Level Item</a>
+                    </li>
+                    <li>
+                        <a href="#">Third Level <span class="fa arrow"></span></a>
+                       <ul class="nav nav-third-level">
+                            <li>
+                                <a href="#">Third Level Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Third Level Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Third Level Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Third Level Item</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-third-level -->
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>*@
+    
+        </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>

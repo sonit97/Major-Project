@@ -1,0 +1,25 @@
+﻿@using Model.EF
+@model IEnumerable<SanPham>
+
+    <ul class="menu">
+        @foreach (var groupitem in Model.GroupBy(n => n.NhaSanXuat))
+        {
+            if (groupitem.Key != null)
+            {
+        <li class="item1">
+            <a href="#">@groupitem.Key.TenNSX</a>
+           
+                <ul class="cute">
+        @foreach (var item in groupitem)
+            {
+            if (item != null)
+              {
+                <li class="subitem1"><a style="font-size:15px;" href="@Url.RouteUrl("XemChiTiet",new { @id=@item.MaSP,@tensp=@item.TenSP})">@item.TenSP </a></li>
+              }
+            }
+                 </ul>            
+        </li>
+            }
+        }
+    </ul>
+

@@ -1,0 +1,92 @@
+﻿@using Model.EF;
+@model IEnumerable<ChiTietDonDatHang>
+@{
+    ViewBag.Title = "Chitiet";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi Tiết Đơn Hàng </h2>
+
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        @foreach (var item in Model)
+        {
+
+            <dt>
+                Mã DDH:
+            </dt>
+
+            <dd>
+                @item.DonDatHang.MaDDH
+            </dd>
+            <dt>
+                Mã Khách hàng:
+            </dt>
+
+            <dd>
+                @item.DonDatHang.MaKH
+            </dd>
+
+                <dt>
+                    Mã SP:
+                </dt>
+
+                <dd>
+                    @item.MaSP
+                </dd>
+
+                <dt>
+                    Tên SP:
+                </dt>
+
+                <dd>
+                    @item.TenSP
+                </dd>
+
+                <dt>
+                    Số lượng:
+                </dt>
+
+                <dd>
+                    @item.SoLuong
+                </dd>
+
+                <dt>
+                    Đơn giá:
+                </dt>
+
+                <dd>
+                    @item.DonGia
+                </dd>
+         
+
+
+
+        <dt>
+            Tình trạng giao:
+        </dt>
+
+           
+                if (item.DonDatHang.TinhTrangGH == 0)
+                {
+                    <dd>Tiến hành giao</dd>
+                }
+                else if (item.DonDatHang.TinhTrangGH == 1)
+                {
+                    <dd>Đã giao</dd>
+                }
+                else if (item.DonDatHang.TinhTrangGH == 2)
+                {
+                    <dd>Không nhận</dd>
+                }
+         
+        <hr />
+     }
+</div>
+<p>
+  
+    @Html.ActionLink("Quay lại", "Index")
+</p>
+

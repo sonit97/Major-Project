@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "DemoAjax";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*@Ajax.ActionLink("Load Ajax Mvc ", "LoadAjaxActinoLink", new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "KetQua", InsertionMode = InsertionMode.InsertAfter, LoadingElementId = "divloading" })*@
+
+@* -------------- *@
+
+@*@using (Ajax.BeginForm("LoadAjaxBeginForm", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "KetQua", InsertionMode = InsertionMode.Replace, LoadingElementId = "divloading" }))
+    {
+
+        <input name="txt1" />
+        <input type="submit" value="Submit" />
+
+    }*@
+@* -------------- *@
+
+@*<input type="button" id="button" value="Submit JA" />
+    <script>
+        $("#button").click(function () {
+            $('#divloading').show();
+            $.ajax({
+                type: 'GET',
+                data: { a: 1, b: 2 },
+                url: 'LoadAjaxJQ',
+                success: function (kq) {
+                    $('#divloading').hide();
+                    $('#KetQua').html(kq);
+       }
+        })
+        })
+    </script>*@
+
+@*Load partial view ajax*@
+@Ajax.ActionLink("Load Ajax Mvc ", "SPpartial", new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "KetQua", InsertionMode = InsertionMode.InsertAfter, LoadingElementId = "divloading" })
+
+
+<div class="container">
+    <div class="content-top">
+
+        <div id="divloading" style="display:none">
+            <img src="~/Content/client/images/load.gif" />
+        </div>
+
+        <div id="KetQua" style="height:150px">
+            Đây là kết quả
+
+        </div>
+        </div>
+    </div>

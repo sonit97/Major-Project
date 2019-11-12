@@ -1,0 +1,148 @@
+﻿@using DATNWEB.Models;
+@model List<ItemGioHang>
+
+
+@{
+    ViewBag.Title = "XemGioHang";
+    Layout = "~/Views/Shared/_ProductLayout.cshtml";
+
+}
+<div class="col-md-9 product1">
+    @if (Model == null || Model.Count ==0)
+    {
+        <h1 style="color:red;">Giỏ hàng rỗng!!</h1>
+    }
+    else
+    {
+        <table class="table">
+            <tr>
+                <td>Mã SP</td>
+                <td>Tên SP</td>
+                <td>Hình ảnh</td>
+                <td>Số lượng</td>
+                <td>Đơn giá</td>
+                <td>Thành tiền</td>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MaSP</td>
+                    <td>@item.TenSP</td>
+                    <td><img src="@Url.Content(item.HinhAnh)" width="150" height="50" /></td>
+                    <td>@item.SoLuong</td>
+                    <td>@item.DonGia.ToString("#,##")</td>
+                    <td>@item.ThanhTien.ToString("#,##")</td>
+                    <td>@Html.ActionLink("Sửa","SuaGioHang",new{ @MaSP=item.MaSP }, new { @class = "btn btn-success" })</td>
+                    <td>@Html.ActionLink("Xóa", "XoaGioHang", new { @MaSP = item.MaSP }, new { @class = "btn btn-danger" })</td>
+                </tr>
+
+            }
+        </table>
+        <a style="width:100px;height:35px;font-size: 16px;margin-left: 325px;margin-bottom: 20px;" href="@Url.Action("Index", "Home")" class="btn btn-success">Mua tiếp</a>
+        <h2 style="float:left;">Tổng tiền :<span style="color:red;">@((ViewBag.TongTien).ToString("#,##"))</span> VNĐ</h2>
+       
+        //
+        <button style="width:100px;margin-bottom: 20px;" class="btn btn-danger">Đặt hàng</button>
+        <div class="formdk">
+            @using (Html.BeginForm("DatHang", "GioHang"))
+            {
+
+            <div class="ThongTinMuaHang">
+                <table align="center" class="table">
+                    <tr>
+                        <td align="center" colspan="2"><b style="font-size:1.5em;font-weight: bold;">Thông tin khách hàng</b></td>
+                    </tr>
+                    @if (Session["TaiKhoan"] == null)
+                        {
+                        <tr>
+                            <td>Họ tên</td>
+                            <td>
+                                @Html.TextBox("TenKH")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ</td>
+                            <td>
+                                @Html.TextArea("DiaChi")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>
+                                @Html.TextBox("Email")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Điện thoại</td>
+                            <td>
+                                @Html.TextBox("SoDienThoai")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                @Html.Hidden("MaThanhVien")
+                            </td>
+                        </tr>
+                        }
+                        else
+                        {
+                            Model.EF.ThanhVien tv = (Model.EF.ThanhVien)Session["TaiKhoan"];
+                        <tr>
+                            <td>Họ tên</td>
+                            <td>
+                                @Html.TextBox("TenKH",tv.Hoten)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ</td>
+                            <td>
+                                @Html.TextArea("DiaChi",tv.DiaChi)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>
+                                @Html.TextBox("Email")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Điện thoại</td>
+                            <td>
+                                @Html.TextBox("SoDienThoai",tv.SoDienThoai)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                @Html.Hidden("MaThanhVien",tv.MaThanhVien)
+                            </td>
+                        </tr>
+                    
+
+                        }
+                </table>
+            </div>
+
+
+            <div class="divDatHang" style="text-align:right;">
+                <input type="submit" value="Đặt mua " class="btn btn-danger" />
+                
+            </div>
+            }
+        </div>
+
+    }
+    @*  *@
+</div>
+<script>
+$(document).ready(function(){
+    $(".formdk").hide();
+    $("button").click(function(){
+
+        $(".formdk").show(1000);
+        $("button").hide();
+    });
+});
+</script>

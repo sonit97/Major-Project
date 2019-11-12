@@ -1,0 +1,138 @@
+﻿@model IEnumerable<Model.EF.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section scriptsdatatable{
+<script src="~/Areas/Admin/assets/datatables/js/jquery.dataTables.min.js"></script>
+<script src="~/Areas/Admin/assets/datatables-plugins/dataTables.bootstrap.min.js"></script>
+<script src="~/Areas/Admin/assets/datatables-responsive/dataTables.responsive.js"></script>
+}
+<h2>Sản Phẩm</h2>
+@section dataTables{
+    <script>
+        $(document).ready(function() {
+            $('#dataTables-example').DataTable({
+                responsive: true,
+                "lengthMenu": [[1, 2, 5, -1], [1, 2, 5, "All"]]
+            });
+        });
+    </script>
+}
+
+<p>
+    @Html.ActionLink("Thêm Mới Sản Phẩm", "Create")
+</p>
+<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+    <thead>
+        <tr>
+            <th>
+                Mã SP
+            </th>
+            <th>
+               Tên Loại
+            </th>
+            <th>
+               Nhà Cung Cấp
+            </th>
+            <th>
+               Nhà Sản Xuất
+            </th>
+            <th>
+               Tên Sản Phẩm
+            </th>
+            <th>
+               Đơn Giá
+            </th>
+            <th>
+               Ngày Cập Nhật
+            </th>
+            <th>
+               Cấu Hình
+            </th>
+            <th>
+                Mô Tả
+            </th>
+           
+            <th>
+                Số Lượng Tồn
+            </th>
+            <th>
+                Tình Trạng
+            </th>
+            <th>
+                Hình Ảnh
+            </th>
+            <th>
+               Hình Ảnh 1
+            </th>
+            <th>
+                Hình Ảnh 2
+            </th>
+            <th>
+                Hình Ảnh 3
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaSP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoaiSanPham.TenLoai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NhaCungCap.TenNCC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NhaSanXuat.TenNSX)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenSP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonGia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayCapNhat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CauHinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoTa)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuongTon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TinhTrang)
+                </td>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem =>item.HinhAnh)"width="150" height="50" class="img-thumbnail">
+                </td>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem =>item.HinhAnh1)"  width="150" height="50"  class="img-thumbnail">
+                </td>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem =>item.HinhAnh2)" width="150" height="50" class="img-thumbnail">
+                </td>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.HinhAnh3)" width="150" height="50" class="img-thumbnail">
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MaSP }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MaSP }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MaSP })
+                </td>
+            </tr>
+        }
+     </tbody>
+
+</table>

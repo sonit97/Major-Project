@@ -1,0 +1,75 @@
+﻿@using CaptchaMvc.HtmlHelpers; 
+@using CaptchaMvc;
+@using Model.EF
+@model ThanhVien
+@{
+    ViewBag.Title = "DangKy";
+
+    Layout = "~/Views/Shared/_ProductLayout.cshtml";
+    
+}
+
+<div class="register">
+    <h1>Đăng Ký</h1>
+    @using (Html.BeginForm()) { 
+        @Html.AntiForgeryToken()
+        <hr />
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" });
+
+        <div class="col-md-6 register-top-grid" style="padding-left:15em;padding-right: 0;">
+            <h3>Thông tin cá nhân</h3>
+            
+                <div>
+                    <span>Tài khoản</span>
+                    @Html.TextBoxFor(model => model.TaiKhoan)
+                    @Html.ValidationMessageFor(model => model.TaiKhoan)
+                </div>
+                <div>
+                    <span>Họ tên</span>
+                    @Html.TextBox("Hoten")
+                </div>
+                <div>
+                    <span>Giới Tính</span>
+                    Nam @Html.RadioButton("GioiTinh", "Nam", new { id = "rdoCSharp" })
+                    Nữ @Html.RadioButton("GioiTinh", "Nữ", new { id = "rdoCSharp" })
+
+                </div>
+                <div>
+                    <span>Địa chỉ</span>
+                    @Html.TextBox("DiaChi")
+                </div>
+                <div>
+                    <span>Email</span>
+                    @Html.TextBox("Email")
+                </div>
+                <div>
+                    <span>Số điện thoại</span>
+                    @Html.TextBox("SoDienThoai")
+                </div>
+                <div>
+                    @Html.Hidden("MaLoaiTV", 1)
+                </div>
+                
+</div>
+        <div class="col-md-6 register-bottom-grid" style="padding-left: 14em;padding-right: 0;margin-left: 19em;    padding-right: 1em;">
+           
+            <div>
+                <span>Mật khẩu</span> 
+                @Html.Password("MatKhau")
+            </div>
+            <div>
+                <span>Nhập lại mật khẩu</span>
+                @Html.Password("NhapLaiMatKhau")
+            </div>
+           <div>
+                @Html.Captcha(5)
+           </div>
+            <hr />
+            <input type="submit" value="Đăng Ký">
+
+        </div>
+        <div class="clearfix"> </div>
+    }
+</div>
+<h3 style="color:red;">@ViewBag.ThongBao</h3>
+

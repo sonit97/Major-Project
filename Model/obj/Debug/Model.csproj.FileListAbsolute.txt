@@ -1,0 +1,20 @@
+E:\Visual Studio 2015\Projects\DATNWEB\Model\bin\Debug\Model.dll.config
+E:\Visual Studio 2015\Projects\DATNWEB\Model\bin\Debug\Model.dll
+E:\Visual Studio 2015\Projects\DATNWEB\Model\bin\Debug\Model.pdb
+E:\Visual Studio 2015\Projects\DATNWEB\Model\bin\Debug\EntityFramework.dll
+E:\Visual Studio 2015\Projects\DATNWEB\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\Visual Studio 2015\Projects\DATNWEB\Model\bin\Debug\EntityFramework.xml
+E:\Visual Studio 2015\Projects\DATNWEB\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\Visual Studio 2015\Projects\DATNWEB\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+E:\Visual Studio 2015\Projects\DATNWEB\Model\obj\Debug\Model.dll
+E:\Visual Studio 2015\Projects\DATNWEB\Model\obj\Debug\Model.pdb
+D:\tessst\DATNWEB\Model\bin\Debug\Model.dll.config
+D:\tessst\DATNWEB\Model\bin\Debug\Model.dll
+D:\tessst\DATNWEB\Model\bin\Debug\Model.pdb
+D:\tessst\DATNWEB\Model\bin\Debug\EntityFramework.dll
+D:\tessst\DATNWEB\Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\tessst\DATNWEB\Model\bin\Debug\EntityFramework.xml
+D:\tessst\DATNWEB\Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\tessst\DATNWEB\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\tessst\DATNWEB\Model\obj\Debug\Model.dll
+D:\tessst\DATNWEB\Model\obj\Debug\Model.pdb

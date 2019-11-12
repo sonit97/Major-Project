@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Storm Store</title>
+    <link href="~/Content/client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />    
+    <link href="~/Content/client/css/jquery-ui.css" rel="stylesheet" />
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Content/client/js/jquery.min.js"></script>
+    <script src="~/Content/client/js/jquery-ui.js"></script>
+    <!-- Custom Theme files -->
+    <!--theme-style-->
+    <link href="~/Content/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="New Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'><!--//fonts-->
+    <!-- start menu -->
+    <link href="~/Content/client/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="~/Content/client/js/memenu.js"></script>
+    <script>$(document).ready(function(){$(".memenu").memenu();});</script>
+    <script src="~/Content/client/js/simpleCart.min.js"> </script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+</head>
+<body>
+    <!--header-->
+    <div class="header">
+        @Html.Partial("~/Views/Shared/_HeaderTopPartial.cshtml")
+        <div class="container">
+            <div class="head-top">
+                <div class="logo">
+                    <a href="@Url.Action("Index","Home")"><img style="height:50px;" src="~/Content/client/images/0604.png" alt=""></a>
+                </div>
+                @Html.Action("MenuPartial","Home")
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner">
+        <div class="container">
+            <script src="~/Content/client/js/responsiveslides.min.js"></script>
+            <script>
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: true,
+      	nav: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: true,
+      });
+    });
+            </script>
+            <div id="top" class="callbacks_container">
+                <ul class="rslides" id="slider">
+                    <li>
+
+                        <div class="banner-text">
+                            <h3>Welcome to TSStore</h3>
+                            @*<p>Điện Bàn-Quảng Nam</p>*@
+                
+                        </div>
+
+                    </li>
+                    <li>
+
+                        <div class="banner-text">
+                            <h3>Welcome to TSStore</h3>
+                           
+                          
+
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="banner-text">
+                            <h3>Welcome to TSStore</h3>
+                            @*<p>48 Cao Thắng - Đà Nẵng</p>*@
+                           
+
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!--content-->
+    <div class="content">
+        @RenderBody()
+    </div>
+    @Html.Action("Footer", "Home")
+    <script src="~/Content/client/js/controller/baseController.js"></script>
+</body>
+</html>
+

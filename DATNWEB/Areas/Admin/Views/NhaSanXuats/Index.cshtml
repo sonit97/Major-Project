@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Model.EF.NhaSanXuat>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section scriptsdatatable{
+    <script src="~/Areas/Admin/assets/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Admin/assets/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="~/Areas/Admin/assets/datatables-responsive/dataTables.responsive.js"></script>
+}
+
+
+<h2>Danh Mục Nhà Sản Xuất</h2>
+
+<p>
+    @Html.ActionLink("Thêm Mới NSX", "Create")
+</p>
+@section dataTables{
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').DataTable({
+                responsive: true,
+                "lengthMenu": [[1, 2, 5, -1], [1, 2, 5, "All"]]
+            });
+        });
+    </script>
+}
+<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+    <thead>
+        <tr>
+            <th>
+               Mã NSX
+            </th>
+            <th>
+               Tên NSX
+            </th>
+            <th>
+               Thông Tin
+            </th>
+            <th>#</th>
+        </tr>
+        </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaNSX)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenNSX)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThongTin)
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Edit", new { id = item.MaNSX }, new { @class = "fa fa-wrench fa-fw" }) |
+                    @Html.ActionLink(" ", "Delete", new { id = item.MaNSX }, new { @class = "glyphicon glyphicon-trash" })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

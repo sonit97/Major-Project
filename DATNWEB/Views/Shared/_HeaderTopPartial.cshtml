@@ -1,0 +1,117 @@
+﻿@using Model.EF
+@{ 
+    var linkct = "/ca-nhan";
+}
+<div class="header-top">
+    <div class="container">
+        <div class="search" style="margin-top:3px;">
+         @using (Html.BeginForm("KeyTimKiem", "TimKiem"))
+                    {
+                         <input type = "text"  id="txtKeyword" name = "sTuKhoa" placeholder = "Tìm kiếm" >
+                         <i type="submit" class="fa fa-search" aria-hidden="true"></i>
+                         @*<input type = "submit" value = "Tìm kiếm" >*@
+                    }
+            
+            @*<form action="/tim-kiem" method="get">
+                <input type="text" id="txtKeyword" name="keyword" placeholder="Tìm kiếm">
+                <i type="submit" class="fa fa-search" aria-hidden="true"></i>
+            </form>*@
+        </div>
+        <div class="header-left">
+            <ul>              
+                @if(Session["TaiKhoan"] !=null && Session["TaiKhoan"] != "")
+                {
+                    ThanhVien tv = (ThanhVien)Session["TaiKhoan"];
+                    <li style="color:aliceblue;">Chào @tv.Hoten </li>
+                    <li ><a  href ="@Url.Action("DangXuat","Home")"><img style="width:25px;height:21px;" src="~/Content/client/images/logout.png" alt="Đăng xuất"  title="Đăng xuất" /></a></li>
+                    <li ><a  href ="@Url.Action("Index","KhachHang")"><img style="width:20px;height:21px;" src="~/Content/client/images/user.png" alt="" title="Trang cá nhân" /></a></li>
+                    
+
+                }
+                else
+                {
+                        <li style="display: inline;"><a style="padding-top:7px;" id="btnDangNhap" class="lock" href="#">Đăng Nhập</a></li>
+                        <li style="display: inline;"><a style="float:left;padding-top:7px;" class="lock" href="@Url.Action("DangKy","Home")">Đăng Ký</a></li>
+                     }
+                
+                <li>
+                </li>
+
+            </ul>
+            @* Chèn partial view giỏ hàng vào layout(tách icon gio hang sang 1 partial view mới) *@
+           @Html.Action("GioHangPartial","GioHang")
+            <div class="clearfix"> </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+<link href="~/Content/client/form/css/style.css" rel='stylesheet' type='text/css'>
+
+
+<div>
+
+
+    @*tạo 1 div bên ngoài chứa div login-form*@
+    <div id="popup_login">
+        <div class="login-form" id="login-form">
+            <div style="clear:both;text-align:right;margin-bottom:0;">
+                <span id="close-form" class="btn btn-danger">X</span>
+
+            </div>
+            <h2>Đăng nhập</h2>
+            <div class="form-info">
+                @using (Ajax.BeginForm("DangNhap","Home",new AjaxOptions { InsertionMode=InsertionMode.Replace,UpdateTargetId="ThongBao"})) {
+
+                    <input type="text" name="txtTenDangNhap" class="email" placeholder="Tên tài khoản" required="" />
+                    <input type="password" name="txtMatKhau" class="password" placeholder="Mật khẩu" required="" />
+                    <p><a href="#">Quên mật khẩu?</a></p>
+                    <h3 style="font-weight:bold;color:red;text-align:left;"id="ThongBao"> </h3>
+                    <ul class="login-buttons">
+                        <li><input type="submit" value="Đăng nhập" /></li>
+                        <li><a href="@Url.Action("DangKy","Home")" class="hvr-sweep-to-left">Đăng ký</a></li>
+                        
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #btnDangNhap {
+        float: left;
+    }
+    #close-form {
+        color: white;
+    }
+    #login-form {
+        background: #3a3a46;
+        cursor: pointer;
+    }
+
+    #popup_login {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.5);
+        z-index: 99;
+        display: none;
+    }
+</style>
+<script type="text/javascript">
+    $("#btnDangNhap").click(function () {
+        $("#popup_login").show();
+
+
+    });
+    $("#close-form").click(function () {
+        $("#popup_login").click(Anform);
+    });
+    function Anform() {
+        $("#popup_login").hide();
+
+    }
+</script>

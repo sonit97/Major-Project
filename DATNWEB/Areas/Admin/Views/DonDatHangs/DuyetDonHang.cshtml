@@ -1,0 +1,99 @@
+﻿@using Model.EF
+@model IEnumerable<DonDatHang>
+@{
+  
+    ViewBag.Title = "DuyetDonHang";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section scriptsdatatable{
+    <script src="~/Areas/Admin/assets/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Admin/assets/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="~/Areas/Admin/assets/datatables-responsive/dataTables.responsive.js"></script>
+}
+<h2>Duyệt Đơn Hàng</h2>
+
+@section dataTables{
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').DataTable({
+                responsive: true,
+                "lengthMenu": [[1, 2, 5, -1], [1, 2, 5, "All"]]
+            });
+        });
+    </script>
+}
+<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+    <thead>
+        <tr>
+
+            <th>Mã đơn đặt hàng</th>
+            <th> Khách hàng</th>
+            <th>Địa chỉ</th>
+            <th>Ngày đặt</th>                        
+            <th>Tổng tiền</th>
+            <th>Tình trạng</th>
+            <th>Duyệt đơn hàng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr @*id="row_@item.MaDDH"*@>
+
+                <td>@item.MaDDH</td>
+                <td>Mã Kh:@item.MaKH<br />Họ tên:@item.KhachHang.TenKH</td>
+                <td>@item.KhachHang.DiaChi <br />@item.KhachHang.SoDienThoai</td>
+                <td>@item.NgayDat</td>
+                @*<TD>
+                    @Html.DropDownList("MaThanhVien", null, htmlAttributes: new { @class = "form-control" })
+                    @*<select>
+                            <option value="volvo">Volvo</option>
+
+                        </select>*@
+                @*</TD>*@
+                @*<td>@item.TinhTrangGH</td>*@
+                @*<td>@item.UuDai</td>*@
+
+                <td>@(item.TongTien.Value.ToString("#,##")) VNĐ </td>
+                @if (item.TinhTrang == 0)
+                {
+                    <td>Chờ duyệt</td>
+                }
+                else if (item.TinhTrang == 1)
+                {
+                    <td>Đã Duyệt</td>
+                }
+                @*<td><a>@Html.Raw(item.TinhTrang?"<strong>Đã Duyệt</strong>" : "Chờ Duyệt")</a></td>*@
+                <td>
+                    @if (item.TinhTrang == 0)
+                    {
+                        <a href="@Url.Action("DuyetDonHang","DonDatHangs",new {@ma=item.MaDDH})" class="btn btn-success">Duyệt</a>
+                        <a href="@Url.Action("Chitiet", "DonDatHangs", new { @MaDDH = item.MaDDH })"  class="btn btn-danger">Chi tiết</a>
+                    }
+                </td>
+
+                @*<td>
+                        <a href="/Admin/User/Edit/@item.ID">Sửa</a>
+                        |
+                        @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
+                       {
+                           Confirm = "Bạn có muốn xoá bản ghi này?",
+                           OnComplete = "$('#row_" + @item.ID + "').remove()",
+                           HttpMethod = "Delete"
+                       })
+
+
+
+                    </td>*@
+            </tr>
+
+
+        }
+
+
+    </tbody>
+
+</table>
+
+
+

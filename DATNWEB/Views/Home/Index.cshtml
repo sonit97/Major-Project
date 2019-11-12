@@ -1,0 +1,41 @@
+﻿@using Model.EF;
+@model IEnumerable<SanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    IEnumerable<SanPham> listDTM = (IEnumerable<SanPham>)ViewBag.ListDTM;
+    IEnumerable<SanPham> listLTM = ViewBag.ListLTM as IEnumerable<SanPham>;
+    IEnumerable<SanPham> listTBM = ViewBag.ListTBM as IEnumerable<SanPham>;
+}
+@* Bước 1:Tach code ra và lông partialview *@
+<div class="content-top">
+    <h1>APPLE</h1>
+    <div class="grid-in">
+        @* Dien thoai *@
+        <div class="container">
+            @Html.Partial("~/Views/SanPham/SanPhamstyle1Partial.cshtml", listDTM)
+        </div>
+    </div>
+    @*  *@
+
+    <h1>HUAWEI</h1>
+    <div class="grid-in">
+        @* Dien thoai *@
+        <div class="container">
+            @Html.Partial("~/Views/SanPham/SanPhamstyle2Partial.cshtml", listLTM)
+        </div>
+    </div>
+
+    @* May tinh bang *@
+
+    <h1>OPPO</h1>
+    <div class="grid-in">
+        <div class="container">
+            @Html.Partial("~/Views/SanPham/SanPhamstyle1Partial.cshtml", listTBM)
+        </div>
+    </div>
+
+  
+</div>

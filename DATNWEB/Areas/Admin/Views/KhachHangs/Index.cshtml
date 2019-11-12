@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Model.EF.KhachHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section scriptsdatatable{
+    <script src="~/Areas/Admin/assets/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Admin/assets/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="~/Areas/Admin/assets/datatables-responsive/dataTables.responsive.js"></script>
+}
+<h2>Danh sách khách hàng</h2>
+@section dataTables{
+    <script>
+        $(document).ready(function() {
+            $('#dataTables-example').DataTable({
+                responsive: true,
+                "lengthMenu": [[1, 2, 5, -1], [1, 2, 5, "All"]]
+            });
+        });
+    </script>
+}
+
+<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ThanhVien.TaiKhoan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenKH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiaChi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoDienThoai)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThanhVien.TaiKhoan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoDienThoai)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.MaKH }, new { @class = "btn btn-success" }) |*@
+                    @Html.ActionLink("Details", "Details", new { id = item.MaKH }, new { @class = "btn btn-danger" }) @*|
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MaKH })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,54 @@
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\obj\Debug\DATNWEB.csprojResolveAssemblyReference.cache
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\ApplicationInsights.config
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\roslyn\csc.exe
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\roslyn\System.Collections.Immutable.dll
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\roslyn\System.Reflection.Metadata.dll
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\roslyn\vbc.exe
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\roslyn\VBCSCompiler.exe
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\roslyn\VBCSCompiler.exe.config
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\DATNWEB.dll.config
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\DATNWEB.dll
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\DATNWEB.pdb
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\Model.dll
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\Model.pdb
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\obj\Debug\DATNWEB.dll
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\obj\Debug\DATNWEB.pdb
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\CaptchaMvc.dll
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\CaptchaMvc.pdb
+E:\Visual Studio 2015\Projects\DATNWEB\DATNWEB\bin\CaptchaMvc.xml
+D:\tessst\DATNWEB\DATNWEB\bin\ApplicationInsights.config
+D:\tessst\DATNWEB\DATNWEB\bin\roslyn\csc.exe
+D:\tessst\DATNWEB\DATNWEB\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\tessst\DATNWEB\DATNWEB\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\tessst\DATNWEB\DATNWEB\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\tessst\DATNWEB\DATNWEB\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\tessst\DATNWEB\DATNWEB\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\tessst\DATNWEB\DATNWEB\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\tessst\DATNWEB\DATNWEB\bin\roslyn\System.Collections.Immutable.dll
+D:\tessst\DATNWEB\DATNWEB\bin\roslyn\System.Reflection.Metadata.dll
+D:\tessst\DATNWEB\DATNWEB\bin\roslyn\vbc.exe
+D:\tessst\DATNWEB\DATNWEB\bin\roslyn\VBCSCompiler.exe
+D:\tessst\DATNWEB\DATNWEB\bin\roslyn\VBCSCompiler.exe.config
+D:\tessst\DATNWEB\DATNWEB\bin\DATNWEB.dll.config
+D:\tessst\DATNWEB\DATNWEB\bin\DATNWEB.dll
+D:\tessst\DATNWEB\DATNWEB\bin\DATNWEB.pdb
+D:\tessst\DATNWEB\DATNWEB\bin\Model.dll
+D:\tessst\DATNWEB\DATNWEB\bin\Model.pdb
+D:\tessst\DATNWEB\DATNWEB\bin\CaptchaMvc.pdb
+D:\tessst\DATNWEB\DATNWEB\bin\CaptchaMvc.xml
+D:\tessst\DATNWEB\DATNWEB\obj\Debug\DATNWEB.dll
+D:\tessst\DATNWEB\DATNWEB\obj\Debug\DATNWEB.pdb
+D:\tessst\DATNWEB\DATNWEB\obj\Debug\DATNWEB.csprojResolveAssemblyReference.cache
+D:\tessst\DATNWEB\DATNWEB\bin\PagedList.dll
+D:\tessst\DATNWEB\DATNWEB\bin\PagedList.Mvc.dll
+D:\tessst\DATNWEB\DATNWEB\bin\PagedList.xml
+D:\tessst\DATNWEB\DATNWEB\bin\PagedList.Mvc.xml
+D:\tessst\DATNWEB\DATNWEB\bin\CKFinder.dll
+D:\tessst\DATNWEB\DATNWEB\bin\CKFinder.pdb
